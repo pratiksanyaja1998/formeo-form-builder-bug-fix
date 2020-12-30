@@ -1,26 +1,25 @@
-import { generateOptionConfig } from './shared'
 import i18n from 'mi18n'
 import Control from '../control'
 
 class FormulaControl extends Control {
   constructor() {
-    const selectConfig = {
-      tag: 'formula',
-      config: {
-        label: i18n.get('controls.form.formula') || 'Formula',
-      },
+    const formulaConfig = {
+      tag: 'input',
       attrs: {
+        type: 'number',
         required: false,
         className: '',
+      },
+      config: {
+        label: i18n.get('controls.form.formula') || 'Formula',
       },
       meta: {
         group: 'common',
         icon: 'formula',
         id: 'formula',
       },
-      options: generateOptionConfig('option'),
     }
-    super(selectConfig)
+    super(formulaConfig)
   }
 }
 
