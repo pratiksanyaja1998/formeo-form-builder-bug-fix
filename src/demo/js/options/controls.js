@@ -79,6 +79,7 @@ const controls = {
       'select',
       'text-input',
       'textarea',
+      'formula'
     ],
   },
 }

@@ -8,6 +8,7 @@ import CheckboxGroupControl from './checkbox-group'
 import RadioGroupControl from './radio-group'
 import ButtonControl from './button'
 import DateControl from './input.date'
+import FormulaControl from './formula'
 
 export default [
   ButtonControl,
@@ -20,4 +21,5 @@ export default [
   SelectControl,
   CheckboxGroupControl,
   RadioGroupControl,
+  FormulaControl
 ]
