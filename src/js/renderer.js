@@ -213,7 +213,9 @@ export default class FormeoRenderer {
     })
   }
 
-
+  /**
+   * Apply formula and add event listener
+   */
   applyFormula(){
     Object.values(this.components).forEach(({ formula, id }) => {
       if(formula){
@@ -226,6 +228,10 @@ export default class FormeoRenderer {
     })
   }
 
+
+  /**
+   * Evaulate formula
+   */
   calcFormula(formula, id, onLoad){
     let result = formula
     var columnName=formula.split(/{|}/).filter((ele,i)=>{
@@ -243,6 +249,8 @@ export default class FormeoRenderer {
           if(onLoad){
             const listenerEvent = LISTEN_TYPE_MAP(component)
             if (listenerEvent) {
+
+              // add event listener for input changes
               component.addEventListener(
                 listenerEvent,
                   evt =>{
