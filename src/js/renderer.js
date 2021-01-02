@@ -62,7 +62,6 @@ export default class FormeoRenderer {
     dom.empty(this.container)
 
     this.applyConditions()
-
     this.applyFormula()
 
     this.container.appendChild(this.renderedForm)
@@ -216,20 +215,15 @@ export default class FormeoRenderer {
 
 
   applyFormula(){
-    console.log(Object.values(this.components))
     Object.values(this.components).forEach(({ formula, id }) => {
       if(formula){
         formula = formula?.formula
         if(formula!=="" && formula){
-          console.log("formula apply :-"+formula)
-
           // Evaluate conditions on load.
           this.calcFormula(formula, id, true)
-
         }
       }
     })
-
   }
 
   calcFormula(formula, id, onLoad){
@@ -240,38 +234,26 @@ export default class FormeoRenderer {
       }
     });
 
-    console.log(columnName)
-    
     columnName.map(cname=>{
       Object.values(this.components).forEach(component=>{
         if( component.tag==='input' && cname===component.config.label ){
-          // console.log('matched data ...')
           component = this.getComponent("fields."+(component.id.substring(1)).substring(1))
 
           // on form load add event listener to lisen input changes
           if(onLoad){
-
             const listenerEvent = LISTEN_TYPE_MAP(component)
-            // console.log('listenerEvent ....', listenerEvent)
             if (listenerEvent) {
-              // console.log("listenerEvent ....")
               component.addEventListener(
                 listenerEvent,
                   evt =>{
-                    console.log("calling from event changes .....")
-                    console.log(evt.target.value)
-                    console.log(formula)
                     this.calcFormula(formula+"", id, false)
                   },
                 false
               )
             }
-
           }
 
           let val = component['value']
-          
-          console.log(component['type'])
           
           if(component['type']==='number'){
             val = Number(val)
@@ -286,9 +268,7 @@ export default class FormeoRenderer {
       })
     })
 
-    console.log(result +":- "+ eval(result))
     this.getComponent("fields."+(id.substring(1)).substring(1))['value'] = eval(result)
-
   }
 
   /**

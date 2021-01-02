@@ -176,6 +176,7 @@ export default class EditPanelItem {
       children: this.itemValues.map(([key, val]) => {
         let inputConfig =
           this.panelName === 'conditions' ? this.generateConditionFields(key, val) : this.itemInput(key, val)
+          
         if (['selected', 'checked'].includes(key)) {
           inputConfig = {
             className: 'f-addon',
@@ -446,6 +447,18 @@ export default class EditPanelItem {
       ...INPUT_TYPE_ACTION[valType](dataKey, this.field),
     }
 
-    return inputTypeConfig
+    if(key==='formula'){
+      return {
+        children: [inputTypeConfig,{
+          content: 'Ex : - {Field Name} + {Field Name}',
+          tag: 'p',
+          attrs: {className: 'formula-description'}
+        }],
+        className: 'formula-editor'
+      }
+    }else{
+      return inputTypeConfig
+    }
   }
+
 }
