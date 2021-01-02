@@ -9,6 +9,18 @@ import Component from '../component'
 import { FIELD_CLASSNAME, CONDITION_TEMPLATE, ANIMATION_SPEED_BASE } from '../../constants'
 import Components from '..'
 
+// const DEFAULT_DATA = (tag, type) => {
+//   if(tag==='input' && !['file','radio'].includes(type))
+//   return {
+//     conditions: [CONDITION_TEMPLATE()],
+//     formula: {formula: ''}
+//   }
+//   else 
+//   return {
+//     conditions: [CONDITION_TEMPLATE()],
+//   }
+// }
+
 const DEFAULT_DATA = () => ({
   conditions: [CONDITION_TEMPLATE()],
 })
@@ -23,6 +35,7 @@ export default class Field extends Component {
    * @return {Object} field object
    */
   constructor(fieldData = Object.create(null)) {
+    // super('field', Object.assign({}, DEFAULT_DATA(fieldData?.tag, fieldData?.attrs?.type), fieldData))
     super('field', Object.assign({}, DEFAULT_DATA(), fieldData))
 
     this.label = dom.create(this.labelConfig)
@@ -318,11 +331,14 @@ export default class Field extends Component {
    * @return {Boolean}
    */
   isLockedProp = (propName, kind = 'attrs') => {
+    if(kind==='formula'){
+      return true
+    }
     const propKind = this.config.panels[kind]
     if (!propKind) {
       return false
     }
     const lockedAttrs = propKind.locked.concat(this.get(`config.locked${startCase(kind)}`))
-    return lockedAttrs.includes(propName)
+    return [...lockedAttrs,'formula'].includes(propName)
   }
 }

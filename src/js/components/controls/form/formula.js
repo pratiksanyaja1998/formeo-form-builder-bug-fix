@@ -6,12 +6,15 @@ class FormulaControl extends Control {
     const formulaConfig = {
       tag: 'input',
       attrs: {
-        type: 'number',
+        type: 'text',
         required: false,
         className: '',
       },
       config: {
         label: i18n.get('controls.form.formula') || 'Formula',
+      },
+      formula: {
+        formula: '',
       },
       meta: {
         group: 'common',

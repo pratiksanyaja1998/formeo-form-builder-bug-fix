@@ -159,6 +159,7 @@ export default class EditPanelItem {
     this.panelName = panelName
     this.isDisabled = field.isDisabledProp(item, panelName)
     this.isHidden = this.isDisabled && field.config.panels[panelName].hideDisabled
+    // show/hide remove button 
     this.isLocked = field.isLockedProp(item, panelName)
     this.dom = dom.create({
       tag: 'li',

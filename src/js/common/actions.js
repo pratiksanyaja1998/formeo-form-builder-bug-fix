@@ -29,6 +29,9 @@ const defaultActions = {
     condition: evt => {
       evt.addAction(evt)
     },
+    formula: evt => {
+      evt.addAction(evt)
+    }
   },
   click: {
     btn: evt => {
@@ -64,6 +67,9 @@ const actions = {
       // @todo add logging
       return actions.opts.add.condition(evt)
     },
+    formula: evt => {
+      return actions.opts.add.formula(evt)
+    }
   },
   click: {
     btn: evt => {

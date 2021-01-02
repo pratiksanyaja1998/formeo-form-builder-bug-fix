@@ -23,11 +23,11 @@ try {
 
 const copyPatterns = [
   { from: './**/*', to: 'demo/assets/', context: `${projectRoot}/src/demo/assets` },
-  {
-    from: '*.lang',
-    to: 'demo/assets/lang/',
-    context: require.resolve('formeo-i18n').replace(/main.min.js$/, 'lang/'),
-  },
+  // {
+  //   from: '*.lang',
+  //   to: 'demo/assets/lang/',
+  //   context: require.resolve('formeo-i18n').replace(/main.min.js$/, 'lang/'),
+  // },
 ]
 
 const plugins = [

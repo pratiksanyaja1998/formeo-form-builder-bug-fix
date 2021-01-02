@@ -80,7 +80,14 @@ export default class EditPanel {
       attrs: _this.addAttribute,
       options: _this.addOption,
       conditions: _this.addCondition,
+      formula: ()=> console.log("add formula ..."),
     }
+
+    // remove add formula button 
+    if(type==='formula'){
+      return null
+    }
+    
     const addBtn = {
       ...dom.btnTemplate({ content: btnTitle, title: btnTitle }),
       className: `add-${type}`,

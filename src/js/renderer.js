@@ -63,6 +63,8 @@ export default class FormeoRenderer {
 
     this.applyConditions()
 
+    this.applyFormula()
+
     this.container.appendChild(this.renderedForm)
   }
 
@@ -88,6 +90,7 @@ export default class FormeoRenderer {
       []
     )
 
+  // for save components inside objects
   cacheComponent = data => {
     this.components[baseId(data.id)] = data
     return data
@@ -211,6 +214,78 @@ export default class FormeoRenderer {
     })
   }
 
+
+  applyFormula(){
+    console.log(Object.values(this.components))
+    Object.values(this.components).forEach(({ formula, id }) => {
+      if(formula){
+        formula = formula?.formula
+        if(formula!=="" && formula){
+          console.log("formula apply :-"+formula)
+
+          // Evaluate conditions on load.
+          this.calcFormula(formula, id, true)
+
+        }
+      }
+    })
+
+  }
+
+  calcFormula(formula, id, onLoad){
+    let result = formula
+    var columnName=formula.split(/{|}/).filter((ele,i)=>{
+      if(i%2!==0) {
+        return ele;
+      }
+    });
+
+    console.log(columnName)
+    
+    columnName.map(cname=>{
+      Object.values(this.components).forEach(component=>{
+        if( component.tag==='input' && cname===component.config.label ){
+          // console.log('matched data ...')
+          component = this.getComponent("fields."+(component.id.substring(1)).substring(1))
+
+          // on form load add event listener to lisen input changes
+          if(onLoad){
+
+            const listenerEvent = LISTEN_TYPE_MAP(component)
+            // console.log('listenerEvent ....', listenerEvent)
+            if (listenerEvent) {
+              // console.log("listenerEvent ....")
+              component.addEventListener(
+                listenerEvent,
+                  evt =>{
+                    console.log("calling from event changes .....")
+                    console.log(evt.target.value)
+                    console.log(formula)
+                    this.calcFormula(formula+"", id, false)
+                  },
+                false
+              )
+            }
+
+          }
+
+          let val = component['value']
+          // console.log(this.getComponent("fields."+(com.id.substring(1)).substring(1))['value'])
+          // console.log( typeof val )
+          if(typeof val === 'string' ){
+            val = "'"+val+"'"
+          }
+
+          result = result.replace("{"+cname+"}",val)
+        }
+      })
+    })
+
+    console.log(result +":- "+ eval(result))
+    this.getComponent("fields."+(id.substring(1)).substring(1))['value'] = eval(result)
+
+  }
+
   /**
    * Evaulate conditions
    */
@@ -283,8 +358,8 @@ export default class FormeoRenderer {
 
 const LISTEN_TYPE_MAP = component => {
   const typesMap = [
-    ['input', c => ['textarea', 'text'].includes(c.type)],
-    ['change', c => ['select'].includes(c.tagName.toLowerCase()) || ['checkbox', 'radio'].includes(c.type)],
+    ['input', c => ['textarea', 'text','number'].includes(c.type)],
+    ['change', c => ['select'].includes(c.tagName.toLowerCase()) || ['checkbox', 'radio','number'].includes(c.type)],
   ]
 
   const [listenerEvent] = typesMap.find(typeMap => typeMap[1](component)) || [false]
