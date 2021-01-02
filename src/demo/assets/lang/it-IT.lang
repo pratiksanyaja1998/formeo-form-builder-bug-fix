@@ -183,3 +183,10 @@ if.condition.source.placeholder = fonte
 then.condition.target.placeholder = bersaglio
 condition.value.placeholder = valore
 attributeNotPermitted = L'attributo "{attribute}" non è permesso, per favore sceglierne un altro.
+
+
+panel.label.formula = Formula
+disabled = Disabled
+panelEditButtons.formula = + Formula
+formula = Formula
+formulas = Formula

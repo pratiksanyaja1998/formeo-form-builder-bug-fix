@@ -124,6 +124,7 @@ remove = Remove
 removeType = Remove {type}
 removeMessage = Remove Element
 required = Required
+disabled = Disabled
 reset = Reset
 richText = Rich Text Editor
 roles = Access

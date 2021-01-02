@@ -182,3 +182,10 @@ if.condition.source.placeholder = forrás
 then.condition.target.placeholder = cél
 condition.value.placeholder = érték
 attributeNotPermitted = A (z) "{attribute}" attribútum nem engedélyezett, kérjük, válasszon másikat.
+
+
+panel.label.formula = Formula
+disabled = Disabled
+panelEditButtons.formula = + Formula
+formula = Formula
+formulas = Formula

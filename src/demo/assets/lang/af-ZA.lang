@@ -182,3 +182,10 @@ if.condition.source.placeholder = bron
 then.condition.target.placeholder = teiken
 condition.value.placeholder = waarde
 attributeNotPermitted = Attribuut "{attribuut}" is nie toegelaat nie, kies asseblief 'n ander.
+
+
+panel.label.formula = Formula
+disabled = Disabled
+panelEditButtons.formula = + Formula
+formula = Formula
+formulas = Formula

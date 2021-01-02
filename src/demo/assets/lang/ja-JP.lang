@@ -183,3 +183,10 @@ if.condition.source.placeholder = ソース
 then.condition.target.placeholder = ターゲット
 condition.value.placeholder = 値
 attributeNotPermitted = 属性 "{属性}"は許可されていません。別の属性を選択してください。
+
+
+panel.label.formula = Formula
+disabled = Disabled
+panelEditButtons.formula = + Formula
+formula = Formula
+formulas = Formula

@@ -9,6 +9,7 @@ class FormulaControl extends Control {
         type: 'text',
         required: false,
         className: '',
+        disabled: 'true',
       },
       config: {
         label: i18n.get('controls.form.formula') || 'Formula',

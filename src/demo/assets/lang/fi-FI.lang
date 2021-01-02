@@ -182,3 +182,10 @@ if.condition.source.placeholder = lähde
 then.condition.target.placeholder = kohde
 condition.value.placeholder = arvo
 attributeNotPermitted = Attribuutti "{attribute}" ei ole sallittua, valitse toinen.
+
+
+panel.label.formula = Formula
+disabled = Disabled
+panelEditButtons.formula = + Formula
+formula = Formula
+formulas = Formula

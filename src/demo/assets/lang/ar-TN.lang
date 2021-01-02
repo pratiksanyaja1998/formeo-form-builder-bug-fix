@@ -94,3 +94,10 @@ warning = تحذير!
 viewXML = </>
 viewJSON = { }
 yes = نعم
+
+
+panel.label.formula = Formula
+disabled = Disabled
+panelEditButtons.formula = + Formula
+formula = Formula
+formulas = Formula

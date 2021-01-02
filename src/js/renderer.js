@@ -270,8 +270,13 @@ export default class FormeoRenderer {
           }
 
           let val = component['value']
-          // console.log(this.getComponent("fields."+(com.id.substring(1)).substring(1))['value'])
-          // console.log( typeof val )
+          
+          console.log(component['type'])
+          
+          if(component['type']==='number'){
+            val = Number(val)
+          }
+
           if(typeof val === 'string' ){
             val = "'"+val+"'"
           }

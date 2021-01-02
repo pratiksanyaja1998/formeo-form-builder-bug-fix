@@ -183,3 +183,10 @@ if.condition.source.placeholder = kaynak
 then.condition.target.placeholder = hedef
 condition.value.placeholder = değer
 attributeNotPermitted = "{Attribute}" özelliğine izin verilmiyor, lütfen başka bir tane seçin.
+
+
+panel.label.formula = Formula
+disabled = Disabled
+panelEditButtons.formula = + Formula
+formula = Formula
+formulas = Formula

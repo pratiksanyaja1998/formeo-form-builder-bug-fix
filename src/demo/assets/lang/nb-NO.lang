@@ -183,3 +183,10 @@ if.condition.source.placeholder = kilde
 then.condition.target.placeholder = mål
 condition.value.placeholder = verdi
 attributeNotPermitted = Attributt "{attribute}" er ikke tillatt, vennligst velg en annen.
+
+
+panel.label.formula = Formula
+disabled = Disabled
+panelEditButtons.formula = + Formula
+formula = Formula
+formulas = Formula

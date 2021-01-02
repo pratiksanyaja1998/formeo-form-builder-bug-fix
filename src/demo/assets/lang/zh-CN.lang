@@ -183,3 +183,10 @@ if.condition.source.placeholder = 资源
 then.condition.target.placeholder = 目标
 condition.value.placeholder = 值
 attributeNotPermitted = 不允许使用属性“{attribute}”，请选择其他属性。
+
+
+panel.label.formula = Formula
+disabled = Disabled
+panelEditButtons.formula = + Formula
+formula = Formula
+formulas = Formula

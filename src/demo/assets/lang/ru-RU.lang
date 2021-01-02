@@ -183,3 +183,10 @@ if.condition.source.placeholder = источник
 then.condition.target.placeholder = цель
 condition.value.placeholder = значение
 attributeNotPermitted = Атрибут «{attribute}» не разрешен, выберите другой.
+
+
+panel.label.formula = Formula
+disabled = Disabled
+panelEditButtons.formula = + Formula
+formula = Formula
+formulas = Formula

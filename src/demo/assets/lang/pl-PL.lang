@@ -183,3 +183,10 @@ if.condition.source.placeholder = źródło
 then.condition.target.placeholder = cel
 condition.value.placeholder = wartość
 attributeNotPermitted = Atrybut "{atrybut}" jest niedozwolony, wybierz inny.
+
+
+panel.label.formula = Formula
+disabled = Disabled
+panelEditButtons.formula = + Formula
+formula = Formula
+formulas = Formula
